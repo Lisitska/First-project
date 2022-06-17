@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.myapplication.R
+import com.example.myapplication.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
 
@@ -16,17 +16,36 @@ class MainFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
 
+    private lateinit var _binding: FragmentMainBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        FragmentMainBinding.inflate(inflater, container, false)
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
+
+        return _binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val shops = mutableListOf(ShopInfo("ALDI", "Tulpenweg 1, 15834, Rangsdorf", 4),
+            ShopInfo("LIDL", "Tulpenweg 2, 15834, Rangsdorf", 4),
+            ShopInfo("EDEKA", "Tulpenweg 3, 15834, Rangsdorf", 5),
+            ShopInfo("NETTO", "Tulpenweg 4, 15834, Rangsdorf", 3),
+            ShopInfo("ALDI", "Tulpenweg 7, 15834, Rangsdorf", 4),
+            ShopInfo("LIDL", "Tulpenweg 8, 15834, Rangsdorf", 4),
+            ShopInfo("EDEKA", "Tulpenweg 9, 15834, Rangsdorf", 3),
+            ShopInfo("NETTO", "Tulpenweg 10, 15834, Rangsdorf", 3))
+
+        _binding.list.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
+        _binding.list.adapter = ShopRecyclerViewAdapter(requireContext(), shops)
+    }
 }
