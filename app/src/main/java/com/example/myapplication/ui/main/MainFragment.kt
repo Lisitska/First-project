@@ -36,14 +36,14 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val shops = mutableListOf(ShopInfo("ALDI", "Tulpenweg 1, 15834, Rangsdorf", 4),
-            ShopInfo("LIDL", "Tulpenweg 2, 15834, Rangsdorf", 4),
-            ShopInfo("EDEKA", "Tulpenweg 3, 15834, Rangsdorf", 5),
-            ShopInfo("NETTO", "Tulpenweg 4, 15834, Rangsdorf", 3),
-            ShopInfo("ALDI", "Tulpenweg 7, 15834, Rangsdorf", 4),
-            ShopInfo("LIDL", "Tulpenweg 8, 15834, Rangsdorf", 4),
-            ShopInfo("EDEKA", "Tulpenweg 9, 15834, Rangsdorf", 3),
-            ShopInfo("NETTO", "Tulpenweg 10, 15834, Rangsdorf", 3))
+        val shops = mutableListOf(ShopInfo("ALDI", "Tulpenweg 1, 15834, Rangsdorf", 4,"Distance - 3 km"),
+            ShopInfo("LIDL", "Tulpenweg 2, 15834, Rangsdorf", 4, "Distance 2 km"),
+            ShopInfo("EDEKA", "Tulpenweg 3, 15834, Rangsdorf", 5, "Distance 5 km"),
+            ShopInfo("NETTO", "Tulpenweg 4, 15834, Rangsdorf", 3, "Distance 1 km"),
+            ShopInfo("ALDI", "Tulpenweg 7, 15834, Rangsdorf", 4, "Distance 2 km"),
+            ShopInfo("LIDL", "Tulpenweg 8, 15834, Rangsdorf", 4, "Distance 3 km"),
+            ShopInfo("EDEKA", "Tulpenweg 9, 15834, Rangsdorf", 3,"Distance 7 km"),
+            ShopInfo("NETTO", "Tulpenweg 10, 15834, Rangsdorf", 3, "Distance 5 km"))
 
         _binding.list.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
         _binding.list.adapter = ShopRecyclerViewAdapter(requireContext(), shops)

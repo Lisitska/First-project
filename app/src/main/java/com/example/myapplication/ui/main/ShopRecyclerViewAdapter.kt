@@ -19,6 +19,7 @@ class ShopRecyclerViewAdapter(private val context: Context,
         holder.shopNameView.text = shop.name
         holder.shopAddressView.text = shop.address
         holder.shopRatingView.text = "Rating " + shop.rating.toString()
+        holder.shopDistanceView.text = shop.distance
     }
 
     override fun getItemCount(): Int {
@@ -29,5 +30,6 @@ class ShopRecyclerViewAdapter(private val context: Context,
         val shopNameView = binding.shopName
         val shopAddressView = binding.shopAddress
         val shopRatingView = binding.shopRating
+        val shopDistanceView = binding.shopDistance
     }
 }
