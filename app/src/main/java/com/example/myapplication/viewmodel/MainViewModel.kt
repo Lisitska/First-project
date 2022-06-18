@@ -7,8 +7,9 @@ import com.example.myapplication.view.main.ShopInfo
 
 class MainViewModel : ViewModel() {
 
-    val shopList: LiveData<List<ShopInfo>?> = MutableLiveData<List<ShopInfo>?>().apply {
-        val shops = mutableListOf(ShopInfo("ALDI", "Tulpenweg 1, 15834, Rangsdorf", 4,"Distance - 3 km"),
+    private val _shopList =  MutableLiveData<List<ShopInfo>?>().apply {
+        val shops = mutableListOf(
+            ShopInfo("ALDI", "Tulpenweg 1, 15834, Rangsdorf", 4,"Distance - 3 km"),
             ShopInfo("LIDL", "Tulpenweg 2, 15834, Rangsdorf", 4, "Distance 2 km"),
             ShopInfo("EDEKA", "Tulpenweg 3, 15834, Rangsdorf", 5, "Distance 5 km"),
             ShopInfo("NETTO", "Tulpenweg 4, 15834, Rangsdorf", 3, "Distance 1 km"),
@@ -19,4 +20,6 @@ class MainViewModel : ViewModel() {
 
         value = shops
     }
+
+    val shopList: LiveData<List<ShopInfo>?> = _shopList
 }
