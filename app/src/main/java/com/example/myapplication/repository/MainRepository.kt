@@ -1,5 +1,6 @@
 package com.example.myapplication.repository
 
+import android.os.SystemClock
 import com.example.myapplication.view.main.ShopInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
@@ -17,12 +18,15 @@ class MainRepository {
             ShopInfo("LIDL", "Tulpenweg 8, 15834, Rangsdorf", 4, "Distance 3 km"),
             ShopInfo("EDEKA", "Tulpenweg 9, 15834, Rangsdorf", 3,"Distance 7 km"),
             ShopInfo("NETTO", "Tulpenweg 10, 15834, Rangsdorf", 3, "Distance 5 km"))
-
-        val millis = System.currentTimeMillis()
-        if (millis % 2L == 0L) {
-           emit(null)
-        }else
-            emit(shops)
+        while (true) {
+            val millis = System.currentTimeMillis()
+            if (millis % 2L == 0L) {
+                emit(null)
+            } else {
+                emit(shops)
+            }
+            SystemClock.sleep(2000)
+        }
 
     }.flowOn(Dispatchers.IO)
 }
