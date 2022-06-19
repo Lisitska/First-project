@@ -16,9 +16,7 @@ class MainViewModel (private val mainRepository: MainRepository = MainRepository
             mainRepository.
             shopList.
             collect {
-                if (it != null) {
-                    value = it
-                }
+                value = it
             }
         }
     }

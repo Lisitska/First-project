@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.myapplication.databinding.FragmentMainBinding
 import com.example.myapplication.viewmodel.MainViewModel
 
@@ -33,9 +34,17 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        viewModel.shopList.observe(viewLifecycleOwner, {
-            _binding.list.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
-            _binding.list.adapter = ShopRecyclerViewAdapter(requireContext(), it!!)
-        })
+        viewModel.shopList.observe(viewLifecycleOwner) {
+            when (it) {
+                null -> {
+                    Toast.makeText(activity,"Error", Toast.LENGTH_SHORT).show()
+                }
+                else -> {
+                    _binding.list.layoutManager =
+                        androidx.recyclerview.widget.LinearLayoutManager(context)
+                    _binding.list.adapter = ShopRecyclerViewAdapter(requireContext(), it)
+                }
+            }
+        }
     }
 }

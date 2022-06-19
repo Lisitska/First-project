@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.flowOn
 
 class MainRepository {
     val shopList = flow<List<ShopInfo>?> {
+
         val shops = mutableListOf(
             ShopInfo("ALDI", "Tulpenweg 1, 15834, Rangsdorf", 4,"Distance - 3 km"),
             ShopInfo("LIDL", "Tulpenweg 2, 15834, Rangsdorf", 4, "Distance 2 km"),
@@ -17,6 +18,11 @@ class MainRepository {
             ShopInfo("EDEKA", "Tulpenweg 9, 15834, Rangsdorf", 3,"Distance 7 km"),
             ShopInfo("NETTO", "Tulpenweg 10, 15834, Rangsdorf", 3, "Distance 5 km"))
 
-        emit(shops)
+        val millis = System.currentTimeMillis()
+        if (millis % 2L == 0L) {
+           emit(null)
+        }else
+            emit(shops)
+
     }.flowOn(Dispatchers.IO)
 }
