@@ -5,21 +5,21 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.repository.MainRepository
-import com.example.myapplication.view.main.ShopInfo
+import com.example.myapplication.view.main.UniversityInfo
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MainViewModel (private val mainRepository: MainRepository = MainRepository()): ViewModel() {
 
-    private val _shopList =  MutableLiveData<List<ShopInfo>?>().apply {
+    private val _universityList =  MutableLiveData<List<UniversityInfo>?>().apply {
         viewModelScope.launch {
             mainRepository.
-            shopList.
+            universityList.
             collect {
                 value = it
             }
         }
     }
 
-    val shopList: LiveData<List<ShopInfo>?> = _shopList
+    val universityList: LiveData<List<UniversityInfo>?> = _universityList
 }

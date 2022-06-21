@@ -1,9 +1,9 @@
 package com.example.myapplication.repository
 
-import com.example.myapplication.datasource.ShopDataSource
+import com.example.myapplication.datasource.UniversityDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
 
-class MainRepository(shopDataSource: ShopDataSource = ShopDataSource()) {
-    val shopList = shopDataSource.shopList.flowOn(Dispatchers.IO)
+class MainRepository(universityDataSource: UniversityDataSource = UniversityDataSource()) {
+    val universityList = universityDataSource.universityList.flowOn(Dispatchers.IO)
 }

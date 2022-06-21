@@ -12,28 +12,28 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/shop_name"
+            android:id="@+id/university_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ALDI"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
         <TextView
-            android:id="@+id/shop_address"
+            android:id="@+id/university_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tulpenweg 1, 15834, Rangsdorf"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
         <TextView
-            android:id="@+id/shop_rating"
+            android:id="@+id/university_rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Rating: 4,2★"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
         <TextView
-            android:id="@+id/shop_distance"
+            android:id="@+id/university_distance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Distance - 2km"

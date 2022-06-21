@@ -34,7 +34,7 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        viewModel.shopList.observe(viewLifecycleOwner) {
+        viewModel.universityList.observe(viewLifecycleOwner) {
             when (it) {
                 null -> {
                     Toast.makeText(activity,"Error", Toast.LENGTH_SHORT).show()
@@ -42,7 +42,7 @@ class MainFragment : Fragment() {
                 else -> {
                     _binding.list.layoutManager =
                         androidx.recyclerview.widget.LinearLayoutManager(context)
-                    _binding.list.adapter = ShopRecyclerViewAdapter(requireContext(), it)
+                    _binding.list.adapter = UniversityRecyclerViewAdapter(requireContext(), it)
                 }
             }
         }
