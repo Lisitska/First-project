@@ -19,25 +19,12 @@
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
         <TextView
-            android:id="@+id/university_address"
+            android:id="@+id/university_domen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tulpenweg 1, 15834, Rangsdorf"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
-        <TextView
-            android:id="@+id/university_rating"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Rating: 4,2★"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-
-        <TextView
-            android:id="@+id/university_distance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Distance - 2km"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
     </LinearLayout>
 
     <ImageView

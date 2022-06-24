@@ -17,9 +17,7 @@ class UniversityRecyclerViewAdapter(private val context: Context,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val university = university[position]
         holder.universityNameView.text = university.name
-        holder.universityAddressView.text = university.address
-        holder.universityRatingView.text = "Rating " + university.rating.toString()
-        holder.universityDistanceView.text = university.distance
+//        holder.universityDomenView.text = university.web_pages
     }
 
     override fun getItemCount(): Int {
@@ -28,8 +26,6 @@ class UniversityRecyclerViewAdapter(private val context: Context,
 
     class ViewHolder(binding: UniversityItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val universityNameView = binding.universityName
-        val universityAddressView = binding.universityAddress
-        val universityRatingView = binding.universityRating
-        val universityDistanceView = binding.universityDistance
+        val universityDomenView = binding.universityDomen
     }
 }
