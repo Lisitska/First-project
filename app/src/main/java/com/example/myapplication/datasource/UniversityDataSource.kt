@@ -6,7 +6,7 @@ import com.example.myapplication.api.UniversityApi
 import kotlinx.coroutines.flow.flow
 
 class UniversityDataSource(private val mainApi: UniversityApi = UniversityApi()) {
-    val universityList = flow<List<University>?> {
+    val universityList = flow {
         while (true) {
             val millis = System.currentTimeMillis()
             if (millis % 2L < 0) {

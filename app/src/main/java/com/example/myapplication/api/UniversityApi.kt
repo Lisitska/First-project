@@ -12,7 +12,7 @@ class UniversityApi {
     suspend fun retrieveUniversities(): List<University> {
         val result :HttpResponse = retrieveUniversities0()
         val itemType = object : TypeToken<List<University>>() {}.type
-        return Gson().fromJson<List<University>>(result.readText(), itemType)
+        return Gson().fromJson(result.readText(), itemType)
     }
 
     suspend private fun retrieveUniversities0(): HttpResponse {

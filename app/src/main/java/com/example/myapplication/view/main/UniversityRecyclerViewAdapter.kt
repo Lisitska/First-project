@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.UniversityItemBinding
+import java.util.*
 
 class UniversityRecyclerViewAdapter(private val context: Context,
                               private val university: List<UniversityInfo>): RecyclerView.Adapter<UniversityRecyclerViewAdapter.ViewHolder>() {
@@ -17,7 +18,7 @@ class UniversityRecyclerViewAdapter(private val context: Context,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val university = university[position]
         holder.universityNameView.text = university.name
-//        holder.universityDomenView.text = university.web_pages
+        holder.universityDomainsView.text = university.domains.joinToString(",")
     }
 
     override fun getItemCount(): Int {
@@ -26,6 +27,6 @@ class UniversityRecyclerViewAdapter(private val context: Context,
 
     class ViewHolder(binding: UniversityItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val universityNameView = binding.universityName
-        val universityDomenView = binding.universityDomen
+        val universityDomainsView = binding.universityDomains
     }
 }
