@@ -25,6 +25,13 @@
             android:text=""
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
+        <TextView
+            android:id="@+id/university_web_pages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
     </LinearLayout>
 
     <ImageView

@@ -18,7 +18,7 @@ class MainRepository(universityDataSource: UniversityDataSource = UniversityData
                 else -> {
                     val universityInfoList = mutableListOf<UniversityInfo>()
                     for (university in it) {
-                        universityInfoList.add(UniversityInfo(university.name, university.domains))
+                        universityInfoList.add(UniversityInfo(university.name, university.domains, university.web_pages))
                     }
                     universityInfoList
                 }
