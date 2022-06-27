@@ -28,6 +28,6 @@ class UniversityRecyclerViewAdapter(private val context: Context,
     class ViewHolder(binding: UniversityItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val universityNameView = binding.universityName
         val universityDomainsView = binding.universityDomains
-        val universityWeb_PagesView = binding.universityWebPages
+        val universityWeb_PagesView = binding.universityDomains
     }
 }
