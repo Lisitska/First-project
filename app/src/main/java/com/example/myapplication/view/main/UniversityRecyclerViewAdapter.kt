@@ -4,13 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.databinding.ShitUniversityItemBinding
 import com.example.myapplication.databinding.UniversityItemBinding
 
 class UniversityRecyclerViewAdapter(private val context: Context,
-                              private val university: List<UniversityInfo>): RecyclerView.Adapter<UniversityRecyclerViewAdapter.ViewHolder>() {
+                                    private val university: List<UniversityInfo>): RecyclerView.Adapter<UniversityRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = UniversityItemBinding.inflate(LayoutInflater.from(context), parent, false);
+        val binding = ShitUniversityItemBinding.inflate(LayoutInflater.from(context), parent, false) as UniversityItemBinding;
         return ViewHolder(binding)
     }
 
