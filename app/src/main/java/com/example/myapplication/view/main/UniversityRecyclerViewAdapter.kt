@@ -18,7 +18,7 @@ class UniversityRecyclerViewAdapter(private val context: Context,
         val university = university[position]
         holder.universityNameView.text = university.name
         holder.universityDomainsView.text = university.domains.joinToString(",")
-        holder.universityWeb_PagesView.text = university.domains.joinToString(",")
+        holder.universityWeb_PagesView.text = university.web_pages.joinToString(",")
     }
 
     override fun getItemCount(): Int {
