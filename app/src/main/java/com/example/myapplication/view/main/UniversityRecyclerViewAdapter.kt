@@ -22,7 +22,7 @@ class UniversityRecyclerViewAdapter(private val context: Context,
     }
 
     override fun getItemCount(): Int {
-        return 5
+        return university.size
     }
 
     class ViewHolder(binding: UniversityItemBinding) : RecyclerView.ViewHolder(binding.root) {
