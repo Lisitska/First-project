@@ -10,8 +10,7 @@ class UniversityRecyclerViewAdapter(private val context: Context,
                               private val university: List<UniversityInfo>): RecyclerView.Adapter<UniversityRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = UniversityItemBinding.inflate(LayoutInflater.from(context), parent, false);
-        return ViewHolder(binding)
+        return ViewHolder(null!!)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
