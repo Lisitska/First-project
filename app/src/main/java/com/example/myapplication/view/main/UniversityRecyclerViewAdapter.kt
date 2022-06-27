@@ -8,6 +8,7 @@ import com.example.myapplication.databinding.UniversityItemBinding
 
 class UniversityRecyclerViewAdapter(private val context: Context,
                                     private val university: List<UniversityInfo>): RecyclerView.Adapter<UniversityRecyclerViewAdapter.ViewHolder>() {
+    private val shits = mutableListOf<UniversityInfo>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = UniversityItemBinding.inflate(LayoutInflater.from(context), parent, false)
@@ -15,7 +16,7 @@ class UniversityRecyclerViewAdapter(private val context: Context,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val university = university[position]
+        val university = shits[position]
         holder.universityNameView.text = university.name
         holder.universityDomainsView.text = university.domains.joinToString(",")
         holder.universityWeb_PagesView.text = university.web_pages.joinToString(",")
