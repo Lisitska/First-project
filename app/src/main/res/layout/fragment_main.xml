@@ -4,6 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/search_bar"
+        android:textSize="25dp"
+        android:layout_gravity="start"/>
+
+
     <TextView
         android:id="@+id/Ukranian_University"
         android:layout_width="wrap_content"
