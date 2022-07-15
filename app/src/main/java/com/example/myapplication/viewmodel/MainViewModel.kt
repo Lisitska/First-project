@@ -1,6 +1,7 @@
 package com.example.myapplication.viewmodel
 
 import android.text.TextWatcher
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,6 +24,7 @@ class MainViewModel(private val mainRepository: MainRepository = MainRepository(
     val universityList: LiveData<List<UniversityInfo>?> = _universityList
 
     fun grab(text: String) {
-        //TODO
+        mainRepository.grabFilter(text)
+
     }
 }

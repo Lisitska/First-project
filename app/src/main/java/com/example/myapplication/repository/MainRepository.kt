@@ -25,4 +25,8 @@ class MainRepository(universityDataSource: UniversityDataSource = UniversityData
             }
         }
         .flowOn(Dispatchers.IO)
+
+    fun grabFilter(text: String){
+
+    }
 }
