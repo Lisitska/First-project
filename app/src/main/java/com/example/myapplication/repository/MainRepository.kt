@@ -29,4 +29,12 @@ class MainRepository(universityDataSource: UniversityDataSource = UniversityData
     fun grabFilter(text: String){
 
     }
+
+    fun executeFilter(list:List<UniversityInfo>, filter: String): List<UniversityInfo> {
+        val filteredList = mutableListOf<UniversityInfo>()
+
+        // TODO: fill in filteredList
+
+        return filteredList
+    }
 }
