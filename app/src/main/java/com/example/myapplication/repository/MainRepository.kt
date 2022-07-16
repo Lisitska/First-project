@@ -33,6 +33,12 @@ class MainRepository(universityDataSource: UniversityDataSource = UniversityData
     fun executeFilter(list:List<UniversityInfo>, filter: String): List<UniversityInfo> {
         val filteredList = mutableListOf<UniversityInfo>()
 
+        for (element in list) {
+            if (element.name.contains(filter)){
+                filteredList.add(element)
+                }
+        }
+
         // TODO: fill in filteredList
 
         return filteredList
