@@ -8,6 +8,8 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.mapLatest
 
 class MainRepository(universityDataSource: UniversityDataSource = UniversityDataSource()) {
+    private var filter: String = ""
+
     val universityList: Flow<List<UniversityInfo>?> = universityDataSource
         .universityList
         .mapLatest {
@@ -20,14 +22,15 @@ class MainRepository(universityDataSource: UniversityDataSource = UniversityData
                     for (university in it) {
                         universityInfoList.add(UniversityInfo(university.name, university.domains, university.web_pages))
                     }
-                    universityInfoList
+                    executeFilter(universityInfoList, filter)
                 }
             }
+
         }
         .flowOn(Dispatchers.IO)
 
     fun grabFilter(text: String){
-
+        this.filter = text
     }
 
     fun executeFilter(list:List<UniversityInfo>, filter: String): List<UniversityInfo> {
@@ -36,11 +39,9 @@ class MainRepository(universityDataSource: UniversityDataSource = UniversityData
         for (element in list) {
             if (element.name.contains(filter)){
                 filteredList.add(element)
-                }
+            }
         }
-
-        // TODO: fill in filteredList
-
         return filteredList
     }
+
 }
