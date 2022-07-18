@@ -1,25 +1,25 @@
 package com.example.myapplication.repository
 
+import com.example.myapplication.api.University
 import com.example.myapplication.datasource.UniversityDataSource
 import com.example.myapplication.view.main.UniversityInfo
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.*
 
 class MainRepository(universityDataSource: UniversityDataSource = UniversityDataSource()) {
-    private var filter: String = ""
-
+    private var filterFlow = MutableSharedFlow<String>(replay = 1, onBufferOverflow  = BufferOverflow.DROP_OLDEST).apply {
+        this.tryEmit("")
+    }
     val universityList: Flow<List<UniversityInfo>?> = universityDataSource
-        .universityList
-        .mapLatest {
-            when (it) {
+        .universityList.combine(filterFlow) { list: List<University>?, filter: String ->
+            when (list) {
                 null -> {
                     null
                 }
                 else -> {
                     val universityInfoList = mutableListOf<UniversityInfo>()
-                    for (university in it) {
+                    for (university in list) {
                         universityInfoList.add(UniversityInfo(university.name, university.domains, university.web_pages))
                     }
                     executeFilter(universityInfoList, filter)
@@ -30,7 +30,7 @@ class MainRepository(universityDataSource: UniversityDataSource = UniversityData
         .flowOn(Dispatchers.IO)
 
     fun grabFilter(text: String){
-        this.filter = text
+        this.filterFlow.tryEmit(text)
     }
 
     fun executeFilter(list:List<UniversityInfo>, filter: String): List<UniversityInfo> {
