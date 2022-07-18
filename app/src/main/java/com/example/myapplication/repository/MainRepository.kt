@@ -37,7 +37,7 @@ class MainRepository(universityDataSource: UniversityDataSource = UniversityData
         val filteredList = mutableListOf<UniversityInfo>()
 
         for (element in list) {
-            if (element.name.contains(filter)){
+            if (element.name.contains(filter) || element.domains.any { it.contains(filter) }){
                 filteredList.add(element)
             }
         }
