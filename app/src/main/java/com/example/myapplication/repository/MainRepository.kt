@@ -36,8 +36,11 @@ class MainRepository(universityDataSource: UniversityDataSource = UniversityData
     fun executeFilter(list:List<UniversityInfo>, filter: String): List<UniversityInfo> {
         val filteredList = mutableListOf<UniversityInfo>()
 
+        val lowerCaseFilter = filter.toLowerCase()
         for (element in list) {
-            if (element.name.contains(filter) || element.domains.any { it.contains(filter) }){
+            val lowerCaseName = element.name.toLowerCase()
+            if (lowerCaseName.contains(lowerCaseFilter) ||
+                element.domains.any { it.contains(lowerCaseFilter) }){
                 filteredList.add(element)
             }
         }
